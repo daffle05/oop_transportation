@@ -1,8 +1,6 @@
-// lib/main.dart
 import 'transportation.dart';
 import 'fuelsystem.dart';
 
-// Simple implementations for Engine and Navigation (example)
 class SimpleEngine implements Engine {
   @override
   void start() => print('[Engine] Engine started.');
