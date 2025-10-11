@@ -1,9 +1,6 @@
-// lib/fuelsystem.dart
-// Member 2: FuelSystem part class for the Transportation container
-
 class FuelSystem {
-  String fuelType;      // type of fuel used
-  double fuelLevel;     // amount of fuel in liters
+  String fuelType;      
+  double fuelLevel;    
 
   FuelSystem({this.fuelType = 'Gasoline', this.fuelLevel = 50.0});
 
