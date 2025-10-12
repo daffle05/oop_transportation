@@ -1,16 +1,9 @@
 // lib/main.dart
-import 'transportation.dart';
+import 'transportation.dart' as trans;
 import 'fuelsystem.dart';
+import 'engine.dart' as eng;
 
-// Simple implementations for Engine and Navigation (example)
-class SimpleEngine implements Engine {
-  @override
-  void start() => print('[Engine] Engine started.');
-  @override
-  void stop() => print('[Engine] Engine stopped.');
-}
-
-class SimpleNavigation implements Navigation {
+class SimpleNavigation implements trans.Navigation {
   @override
   void setDestination(String destination) {
     if (destination.isEmpty) {
@@ -22,11 +15,11 @@ class SimpleNavigation implements Navigation {
 }
 
 void main() {
-  final engine = SimpleEngine();
+  final engine = eng.EngineImpl(type: 'Diesel', horsepower: 120);
   final navigation = SimpleNavigation();
   final fuelSystem = FuelSystem(fuelType: 'Diesel', fuelLevel: 25.0);
 
-  final transport = Transportation(
+  final transport = trans.Transportation(
     engine: engine,
     navigation: navigation,
     fuelSystem: fuelSystem,
