@@ -1,23 +1,27 @@
-<<<<<<< HEAD
 import 'fuelsystem.dart';
-=======
-import 'package:oop_transportation/fuelsystem.dart';
->>>>>>> dc682f0 (Fix main.dart and add fuel system integration)
 
+// --- Engine Interface ---
 abstract class Engine {
   void start();
   void stop();
 }
 
+// --- Navigation Interface ---
 abstract class Navigation {
   void setDestination(String destination);
 }
 
+// --- Transportation Class ---
 class Transportation {
   final Engine engine;
   final Navigation navigation;
+  final FuelSystem fuelSystem;
 
-  Transportation({required this.engine, required this.navigation, required FuelSystem fuelSystem});
+  Transportation({
+    required this.engine,
+    required this.navigation,
+    required this.fuelSystem,
+  });
 
   void startTrip(String destination) {
     print('[Transportation] Starting trip...');
@@ -31,10 +35,7 @@ class Transportation {
     navigation.setDestination('');
   }
 
-
   void refuelVehicle(double liters) {
-    print('[Transportation] Refueling vehicle with $liters liters...');
+    fuelSystem.refuel(liters);
   }
-
-  void refuelVehicle(int i) {}
 }

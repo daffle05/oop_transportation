@@ -1,12 +1,9 @@
 // lib/main.dart
-import 'transportation.dart' as trans;
+import 'transportation.dart';
 import 'fuelsystem.dart';
-import 'engine.dart' as eng;
+import 'engine.dart';
 
-<<<<<<< HEAD
-class SimpleNavigation implements trans.Navigation {
-=======
-// --- Simple implementations for Engine and Navigation ---
+// Simple implementations for Engine and Navigation
 class SimpleEngine implements Engine {
   @override
   void start() => print('[Engine] Engine started.');
@@ -16,7 +13,6 @@ class SimpleEngine implements Engine {
 }
 
 class SimpleNavigation implements Navigation {
->>>>>>> dc682f0 (Fix main.dart and add fuel system integration)
   @override
   void setDestination(String destination) {
     if (destination.isEmpty) {
@@ -27,37 +23,25 @@ class SimpleNavigation implements Navigation {
   }
 }
 
-// --- Main function ---
 void main() {
-<<<<<<< HEAD
-  final engine = eng.EngineImpl(type: 'Diesel', horsepower: 120);
-  final navigation = SimpleNavigation();
-  final fuelSystem = FuelSystem(fuelType: 'Diesel', fuelLevel: 25.0);
-
-  final transport = trans.Transportation(
-=======
-  // Initialize components
+  // Create instances
   final engine = SimpleEngine();
   final navigation = SimpleNavigation();
   final fuelSystem = FuelSystem(fuelType: 'Diesel', fuelLevel: 25.0);
 
-  // Create Transportation with all dependencies
   final transport = Transportation(
->>>>>>> dc682f0 (Fix main.dart and add fuel system integration)
     engine: engine,
     navigation: navigation,
     fuelSystem: fuelSystem,
   );
 
-  // --- Demo Start Trip ---
+  // Demo
   print('--- Demo: Start Trip ---');
   transport.startTrip('City Center');
 
-  // --- Demo Refuel ---
   print('--- Demo: Refuel ---');
-  transport.refuelVehicle(20);
+  transport.refuelVehicle(20.0); // Correct method name
 
-  // --- Demo Stop Trip ---
   print('--- Demo: Stop Trip ---');
   transport.stopTrip();
 }
