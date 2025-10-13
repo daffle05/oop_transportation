@@ -1,3 +1,5 @@
+import 'fuelsystem.dart';
+
 abstract class Engine {
   void start();
   void stop();
@@ -11,7 +13,7 @@ class Transportation {
   final Engine engine;
   final Navigation navigation;
 
-  Transportation({required this.engine, required this.navigation});
+  Transportation({required this.engine, required this.navigation, required FuelSystem fuelSystem});
 
   void startTrip(String destination) {
     print('[Transportation] Starting trip...');
@@ -24,4 +26,6 @@ class Transportation {
     engine.stop();                    
     navigation.setDestination('');     
   }
+
+  void refuelVehicle(int i) {}
 }
